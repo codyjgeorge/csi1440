@@ -18,7 +18,6 @@ public:
    */
 
   InfectionSimulator(const std::string &filename);
-
   /**
    * Simulates pathogen spread using iterative flood fill.
    * Preconditions: Grid must be initialized.

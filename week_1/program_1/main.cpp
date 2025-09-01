@@ -9,17 +9,18 @@
 
 /*
  * Data Abstraction:
- *
+ * reads data from infection_map.txt
  *
  * Input:
- *
+ * stores data from infection_map.txt into a 2D array
  *
  * Process:
- *
+ * iterates each through each cell in the 2D array infection adjactent
+ * susceptible cells
  *
  *
  * Output:
- *
+ * displays newly infected cells
  *
  * Assumptions:
  *
@@ -35,10 +36,11 @@ using namespace std;
 
 int main() {
 
+  ifstream inputFile;
   string infection_map = "infection_map.txt";
   string line;
 
-  ifstream inputFile(infection_map); // open inputFile: 'infection_map.txt'
+  inputFile.open(infection_map); // open inputFile: 'infection_map.txt'
 
   // if infection_map is not open, output 'error', else output 'success'
 
