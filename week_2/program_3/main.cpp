@@ -2,9 +2,9 @@
 Author: Cody George
 Assignment Title: Program 3
 Assignment Description: Basics of Pointers with Arrays
-Due Date: 3 SEP 25
-Date Created: 2 SEP 25
-Date Last Modified: 3 SEP 25
+Due Date: 9/3/25
+Date Created: 9/2/25
+Date Last Modified: 9/3/25
 */
 
 #include <iostream>
@@ -20,6 +20,7 @@ int main() {
   for (int i = 0; i < 25; i++) {
     cin >> *(p + i);
   }
+  cout << endl;
   cout << "Original values: " << endl;
   for (int i = 0; i < 25; i++) {
     cout << *(p + i) << " ";
