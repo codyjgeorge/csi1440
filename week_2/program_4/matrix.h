@@ -13,17 +13,17 @@ private:
   int **data;
 
 public:
-  Matrix(int row = 10, int col = 10);
-  ~Matrix();
-  Matrix(Matrix &&other);
-  Matrix(const Matrix &other);
-
-  Matrix *operator=(const Matrix &rhs);
+  Matrix(int row = 10, int col = 10);   // Default constructor
+  ~Matrix();                            // Destructor
+  Matrix(Matrix &&other);               // move copy constructor
+  Matrix(const Matrix &other);          // copy constructor
+  Matrix *operator=(const Matrix &rhs); // assignment operator for 'deep copy'
 
   void display(ostream &out);
 };
 
-Matrix *Matrix::operator=(Matrix &&rhs) {
+// assignment operator for 'deep copy'
+Matrix *Matrix::operator=(Matrix &rhs) {
   cout << "Move = operator" << endl;
   for (int r = 0; r < row; r++) {
     delete[] data[r];
@@ -39,6 +39,7 @@ Matrix *Matrix::operator=(Matrix &&rhs) {
   return this;
 }
 
+// move constructor
 Matrix::Matrix(Matrix &&other)
     : row(other.row), col(other.col), data(other.data) {
   cout << "Move CC" << endl;
@@ -47,6 +48,7 @@ Matrix::Matrix(Matrix &&other)
   other.data = nullptr;
 }
 
+// copy constructor?
 Matrix *Matrix::operator=(const Matrix &rhs) {
   cout << "Call = operator " << endl;
   if (this != &rhs) {
@@ -64,8 +66,9 @@ Matrix *Matrix::operator=(const Matrix &rhs) {
     }
   }
   return this;
-};
+}
 
+// copy constructor
 Matrix::Matrix(const Matrix &other) : row(other.row), col(other.col) {
   cout << "CC " << this << " " << &other << endl;
   data = new int *[row];
@@ -75,6 +78,7 @@ Matrix::Matrix(const Matrix &other) : row(other.row), col(other.col) {
   }
 }
 
+// destructor
 Matrix::~Matrix() {
   cout << "destructor" << this << endl;
   for (int r = 0; r < row; r++) {
@@ -85,6 +89,7 @@ Matrix::~Matrix() {
   data = nullptr;
 }
 
+// constructor
 Matrix::Matrix(int row, int col) : row(row), col(col) {
   cout << "const " << this << endl;
   data = new int *[row];
