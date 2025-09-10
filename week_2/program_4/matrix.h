@@ -1,5 +1,14 @@
-#ifndef MATRIX_H
-#define MATRIX_H
+/*
+ * Author: Cody George
+ * Assignment Title:  Program 4
+ * Assignment Description: Matrix ADT with Dynamic Memory
+ * Due Date: 9/14/25
+ * Date Created: 9/9/25
+ * Date Last Modified: 9/10/25
+ */
+
+#ifndef MATRIX_H_
+#define MATRIX_H_
 #include <iostream>
 #include <string>
 using namespace std;
@@ -34,4 +43,4 @@ private:
 };
 
 ostream &operator<<(ostream &out, Matrix);
-#endif // MATRIX_H
+#endif // MATRIX_H_
